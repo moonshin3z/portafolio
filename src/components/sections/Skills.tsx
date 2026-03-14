@@ -6,8 +6,9 @@ const Skills = () => {
   const allSkills = [...technicalSkills, softSkillsData];
 
   return (
-    <section id="habilidades" className="skills">
+    <section id="habilidades" className="skills" aria-labelledby="skills-heading">
       <SectionHeader
+        id="skills-heading"
         tag="// Stack Tecnológico"
         title="Tecnologías & Herramientas"
         description="Herramientas que domino para crear soluciones robustas y escalables"

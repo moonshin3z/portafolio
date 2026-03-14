@@ -1,18 +1,20 @@
 .tech-badge {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  background: rgba(3, 105, 161, 0.06);
-  border: 1px solid rgba(3, 105, 161, 0.15);
-  border-radius: 8px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-accent);
+  border-radius: 50px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--primary-blue);
+  color: var(--accent);
   font-weight: 500;
   white-space: nowrap;
   cursor: default;
+  transition: all 0.3s ease;
 }
 
 .tech-badge:hover {
-  background: rgba(3, 105, 161, 0.12);
-  border-color: rgba(3, 105, 161, 0.3);
+  background: var(--bg-glass-hover);
+  border-color: var(--accent);
+  box-shadow: 0 0 24px var(--accent-soft);
 }

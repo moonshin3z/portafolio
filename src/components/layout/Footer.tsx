@@ -9,6 +9,8 @@ const Footer = () => {
   return (
     <motion.footer
       className="footer"
+      role="contentinfo"
+      aria-label="Pie de página"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -23,10 +25,13 @@ const Footer = () => {
             href={`https://github.com/${personalInfo.contact.github}`}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Ir a GitHub"
           >
             GitHub
           </a>
-          <a href={`mailto:${personalInfo.contact.email}`}>Email</a>
+          <a href={`mailto:${personalInfo.contact.email}`} aria-label="Enviar email">
+            Email
+          </a>
         </div>
       </div>
     </motion.footer>

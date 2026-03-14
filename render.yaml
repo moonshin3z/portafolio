@@ -1,0 +1,12 @@
+# Render - Backend API para formulario de contacto
+# El frontend se despliega en Vercel (más fácil para React)
+services:
+  - type: web
+    name: portafolio-api
+    runtime: node
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production

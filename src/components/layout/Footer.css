@@ -1,7 +1,7 @@
 .footer {
   padding: 3rem;
-  background: var(--lighter-bg);
-  border-top: 1px solid var(--border-light);
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .footer-content {
@@ -34,7 +34,12 @@
 }
 
 .footer-links a:hover {
-  color: var(--primary-blue);
+  color: var(--accent);
+}
+
+.footer-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {

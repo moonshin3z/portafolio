@@ -6,10 +6,22 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
   href?: string;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
   className?: string;
+  'aria-label'?: string;
 }
 
-const Button = ({ children, variant = 'primary', href, onClick, className = '' }: ButtonProps) => {
+const Button = ({
+  children,
+  variant = 'primary',
+  href,
+  onClick,
+  type = 'button',
+  disabled = false,
+  className = '',
+  'aria-label': ariaLabel,
+}: ButtonProps) => {
   const buttonClass = `btn btn-${variant} ${className}`;
 
   const motionProps = {
@@ -20,7 +32,7 @@ const Button = ({ children, variant = 'primary', href, onClick, className = '' }
 
   if (href) {
     return (
-      <motion.a href={href} className={buttonClass} {...motionProps}>
+      <motion.a href={href} className={buttonClass} aria-label={ariaLabel} {...motionProps}>
         <span className="btn-content">{children}</span>
         {variant === 'primary' && <span className="btn-shimmer" />}
       </motion.a>
@@ -28,7 +40,7 @@ const Button = ({ children, variant = 'primary', href, onClick, className = '' }
   }
 
   return (
-    <motion.button onClick={onClick} className={buttonClass} {...motionProps}>
+    <motion.button type={type} onClick={onClick} className={buttonClass} aria-label={ariaLabel} disabled={disabled} {...motionProps}>
       <span className="btn-content">{children}</span>
       {variant === 'primary' && <span className="btn-shimmer" />}
     </motion.button>

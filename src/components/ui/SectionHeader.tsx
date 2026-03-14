@@ -2,12 +2,13 @@ import { motion } from 'framer-motion';
 import './SectionHeader.css';
 
 interface SectionHeaderProps {
+  id?: string;
   tag: string;
   title: string;
   description?: string;
 }
 
-const SectionHeader = ({ tag, title, description }: SectionHeaderProps) => {
+const SectionHeader = ({ id, tag, title, description }: SectionHeaderProps) => {
   return (
     <motion.div
       className="section-header"
@@ -17,7 +18,7 @@ const SectionHeader = ({ tag, title, description }: SectionHeaderProps) => {
       transition={{ duration: 0.6 }}
     >
       <span className="section-tag">{tag}</span>
-      <h2 className="section-title">{title}</h2>
+      <h2 id={id} className="section-title">{title}</h2>
       {description && <p className="section-description">{description}</p>}
     </motion.div>
   );

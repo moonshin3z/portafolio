@@ -7,8 +7,9 @@ import './Education.css';
 
 const Education = () => {
   return (
-    <section className="education section-dark">
+    <section id="educacion" className="education section-dark" aria-labelledby="education-heading">
       <SectionHeader
+        id="education-heading"
         tag="// Formación"
         title="Educación"
         description="Mi trayectoria académica y logros que fundamentan mi desarrollo profesional"
@@ -82,7 +83,7 @@ const Education = () => {
           </div>
           <div className="stat-box">
             <div className="stat-value">{personalInfo.stats.englishLevel}</div>
-            <div className="stat-text">Inglés (Intermedio-Avanzado)</div>
+            <div className="stat-text">Inglés (Avanzado)</div>
           </div>
         </motion.div>
 

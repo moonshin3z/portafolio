@@ -1,73 +1,147 @@
-# React + TypeScript + Vite
+# Portafolio - Iván Roblero
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio personal de desarrollador Full Stack. Construido con React, TypeScript y Vite.
 
-Currently, two official plugins are available:
+## Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Sitio web de presentación profesional que incluye:
 
-## React Compiler
+- **Hero** con introducción y CTA
+- **Sobre mí** con biografía y estadísticas
+- **Proyectos** destacados con tecnologías
+- **Educación** y formación académica
+- **Habilidades** técnicas y blandas
+- **Contacto** con formulario (API) o mailto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Requisitos
 
-## Expanding the ESLint configuration
+- Node.js 18+
+- npm o pnpm
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Setup
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Clonar e instalar dependencias
+git clone <repo-url>
+cd portafolio-react
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Desarrollo (solo frontend)
+npm run dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Desarrollo completo (frontend + API de contacto)
+npm run dev:full
+
+# Build de producción
+npm run build
+
+# Vista previa del build
+npm run preview
+
+# Análisis del bundle
+npm run analyze
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Script | Descripción |
+|--------|-------------|
+| `npm run dev` | Inicia Vite en modo desarrollo |
+| `npm run build` | Compila para producción |
+| `npm run preview` | Sirve el build localmente |
+| `npm run server` | Inicia el API de contacto (Express) |
+| `npm run dev:full` | Frontend + API en paralelo |
+| `npm run analyze` | Genera reporte visual del bundle (ejecutar con `--mode analyze`) |
+| `npm run lint` | Ejecuta ESLint |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## API de Contacto
+
+El formulario de contacto usa un backend con:
+
+- **Rate limiting**: 5 solicitudes por 15 min por IP
+- **Validación en servidor**: nombre, email, mensaje
+- **Protección CSRF**: token por solicitud
+
+### Variables de entorno
+
+Crear `.env` en la raíz:
+
+```env
+# Opcional: URL del API (vacío = mismo origen)
+VITE_CONTACT_API_URL=
+
+# Para el servidor (server/)
+PORT=3001
+CORS_ORIGIN=https://tu-dominio.com
 ```
+
+### Envío de emails
+
+El servidor actualmente registra los mensajes en consola. Para envío real, configurar SMTP (nodemailer) o integrar Resend/SendGrid en `server/index.ts`.
+
+## SEO
+
+Antes de desplegar, reemplaza `https://tu-dominio.com` en:
+
+- `index.html` (canonical, og:url, Schema.org)
+- `public/robots.txt` (Sitemap)
+- `public/sitemap.xml` (loc)
+
+## Despliegue
+
+### Frontend (Vercel, Netlify, etc.)
+
+```bash
+npm run build
+```
+
+La carpeta `dist/` contiene los archivos estáticos.
+
+### Backend (Railway, Render, Fly.io)
+
+Desplegar la carpeta `server/` con Node.js. Asegurar que `PORT` esté configurado.
+
+### Variables en producción
+
+- `VITE_CONTACT_API_URL`: URL pública del API (ej. `https://api.tudominio.com`)
+
+## PWA (opcional)
+
+Para habilitar PWA, instala `vite-plugin-pwa` cuando soporte Vite 7+ y configúralo en `vite.config.ts`.
+
+## Optimización de imágenes
+
+Para WebP, añade versiones `.webp` junto a cada imagen en `public/images/`:
+
+```
+public/images/projects/wellnessappimagen.png
+public/images/projects/wellnessappimagen.webp  ← opcional, se usa si existe
+```
+
+Puedes generar WebP con herramientas como [Squoosh](https://squoosh.app) o:
+
+```bash
+npx sharp-cli --input "public/images/**/*.png" --output "." --format webp
+```
+
+## Estructura del proyecto
+
+```
+portafolio-react/
+├── public/           # Assets estáticos
+├── server/           # API Express (contacto)
+├── src/
+│   ├── components/   # Componentes React
+│   ├── contexts/     # Contextos (reduced motion)
+│   ├── data/         # Datos estáticos
+│   ├── hooks/        # Hooks personalizados
+│   ├── styles/       # CSS global
+│   └── types/        # Tipos TypeScript
+├── index.html
+├── vite.config.ts
+└── package.json
+```
+
+## Licencia
+
+Privado - Uso personal.

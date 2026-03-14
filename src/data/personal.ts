@@ -17,7 +17,7 @@ export const personalInfo: PersonalInfo = {
     yearsExperience: 4,
     projectsCompleted: 3,
     technologies: 10,
-    englishLevel: 'B2',
+    englishLevel: 'C1',
   },
   contact: {
     email: 'ivanroblerome@gmail.com',

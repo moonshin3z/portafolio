@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import './variables.css';
 
 * {
@@ -11,56 +11,152 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.75rem 1.5rem;
+  background: var(--text-primary);
+  color: var(--bg-base);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 body {
   font-family: var(--font-display);
-  background: var(--light-bg);
+  background: var(--bg-base);
   color: var(--text-primary);
   overflow-x: hidden;
   line-height: 1.6;
 }
 
-/* Scrollbar */
+/* Fondo abstracto - toques cálidos */
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(251, 191, 36, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(251, 191, 36, 0.04), transparent),
+    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(217, 119, 6, 0.05), transparent);
+}
+
+[data-theme='light'] .app-bg {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(217, 119, 6, 0.06), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(251, 191, 36, 0.05), transparent),
+    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(217, 119, 6, 0.04), transparent);
+}
+
+/* Scrollbar - Dark */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--lighter-bg);
+  background: var(--bg-elevated);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-blue);
+  background: var(--border-accent);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--light-blue);
+  background: var(--accent);
 }
 
-/* Selection */
 ::selection {
-  background: var(--primary-blue);
-  color: var(--pure-white);
+  background: var(--accent-soft);
+  color: var(--text-primary);
 }
 
-/* Common Styles */
-.gradient-text {
-  background: var(--gradient-1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+[data-theme='light'] ::selection {
+  background: var(--accent-soft);
+  color: var(--text-primary);
 }
 
-/* Section common styles */
+/* Editorial: drop cap */
+.drop-cap::first-letter {
+  float: left;
+  font-size: 4em;
+  line-height: 0.85;
+  margin-right: 0.1em;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Editorial: pull quote */
+.pull-quote {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  border-left: 4px solid var(--border-accent);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+/* Editorial: section divider */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--border-accent);
+  margin: 3rem auto;
+}
+
 section {
   position: relative;
 }
 
-.section-dark {
-  background: var(--lighter-bg);
+/* Placeholder para secciones en lazy loading - shimmer suave */
+.section-skeleton {
+  min-height: 200px;
+  background: linear-gradient(
+    110deg,
+    var(--bg-elevated) 0%,
+    var(--bg-elevated) 40%,
+    var(--accent-soft) 50%,
+    var(--bg-elevated) 60%,
+    var(--bg-elevated) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 2.5s ease-in-out infinite;
 }
 
-/* Container */
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-skeleton {
+    animation: none;
+    background: var(--bg-elevated);
+  }
+}
+
+.section-dark {
+  background: var(--bg-elevated);
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -73,16 +169,42 @@ section {
   }
 }
 
-/* Card base */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Card base - Glassmorphism */
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-light);
-  border-radius: 8px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-  border-color: var(--primary-blue);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-card-hover);
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .project-card,
+  .skill-card,
+  .contact-card,
+  .education-card,
+  .achievement-card {
+    transition-duration: 0.01ms;
+  }
 }

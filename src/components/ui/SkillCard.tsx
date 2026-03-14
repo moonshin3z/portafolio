@@ -12,19 +12,23 @@ const SkillCard = ({ skill, index }: SkillCardProps) => {
   const Icon = iconMap[skill.icon];
 
   return (
-    <motion.div
-      className="skill-card"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -5 }}
-    >
+<motion.div
+    className="skill-card"
+    role="article"
+    aria-labelledby={`skill-title-${index}`}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-50px' }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    whileHover={{ y: -5 }}
+  >
       <div className="skill-content">
         <span className="skill-icon">
           {Icon && <Icon size={28} strokeWidth={1.5} />}
         </span>
-        <h3 className="skill-title">{skill.title}</h3>
+        <h3 id={`skill-title-${index}`} className="skill-title">
+          {skill.title}
+        </h3>
         <ul className="skill-items">
           {skill.items.map((item, i) => (
             <motion.li

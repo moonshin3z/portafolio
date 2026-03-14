@@ -1,95 +1,36 @@
+/**
+ * Hero tipográfico editorial: nombre, rol y CTA.
+ * Sin imagen de fondo, enfoque en tipografía.
+ */
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
-import { Button, Card3D, TechBadge } from '../ui';
-import { personalInfo, mainStack } from '../../data/personal';
+import { Button } from '../ui';
+import { personalInfo } from '../../data/personal';
 import './Hero.css';
 
 const Hero = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 },
-  };
-
   return (
-    <section className="hero">
+    <section className="hero" aria-labelledby="hero-title">
       <div className="hero-container">
         <motion.div
           className="hero-content"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div className="hero-badge" variants={itemVariants}>
-            <MapPin size={14} /> Disponible para trabajar
-          </motion.div>
-
-          <motion.h1 className="hero-title" variants={itemVariants}>
-            Desarrollo
-            <span className="gradient-text"> soluciones digitales </span>
-            que importan
-          </motion.h1>
-
-          <motion.p className="hero-subtitle" variants={itemVariants}>
-            {personalInfo.subtitle}
-          </motion.p>
-
-          <motion.div className="hero-cta" variants={itemVariants}>
-            <Button href="#proyectos" variant="primary">
+          <span className="hero-label">Full Stack Developer</span>
+          <h1 id="hero-title" className="hero-title">
+            {personalInfo.name}
+          </h1>
+          <p className="hero-subtitle">{personalInfo.subtitle}</p>
+          <div className="hero-cta">
+            <Button href="#proyectos" variant="primary" aria-label="Ver proyectos">
               Ver proyectos
             </Button>
-            <Button href="#contacto" variant="secondary">
+            <Button href="#contacto" variant="secondary" aria-label="Contacto">
               Contáctame
             </Button>
-          </motion.div>
+          </div>
         </motion.div>
-
-        <div className="hero-card-container">
-          <Card3D>
-            <div className="card-header">
-              <h3>// Stack Principal</h3>
-            </div>
-            <div className="card-tech-stack">
-              {mainStack.map((tech, index) => (
-                <TechBadge key={tech} delay={0.8 + index * 0.1}>
-                  {tech}
-                </TechBadge>
-              ))}
-            </div>
-            <div className="stats-grid">
-              <motion.div
-                className="stat-item"
-                whileHover={{ y: -5, backgroundColor: 'rgba(3, 105, 161, 0.06)' }}
-              >
-                <div className="stat-number">UVG</div>
-                <div className="stat-label">Ciencias de la Computación</div>
-              </motion.div>
-              <motion.div
-                className="stat-item"
-                whileHover={{ y: -5, backgroundColor: 'rgba(3, 105, 161, 0.06)' }}
-              >
-                <div className="stat-number">{personalInfo.stats.yearsExperience}+</div>
-                <div className="stat-label">Años programando</div>
-              </motion.div>
-              <motion.div
-                className="stat-item full-width"
-                whileHover={{ y: -5, backgroundColor: 'rgba(3, 105, 161, 0.06)' }}
-              >
-                <div className="stat-number">{personalInfo.stats.projectsCompleted}</div>
-                <div className="stat-label">Proyectos full stack</div>
-              </motion.div>
-            </div>
-          </Card3D>
-        </div>
       </div>
     </section>
   );

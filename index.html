@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO -->
+    <link rel="canonical" href="https://tu-dominio.com/" />
     <title>Iván Roblero | Full Stack Developer</title>
     <meta name="description" content="Portafolio de Iván Roblero - Desarrollador Full Stack especializado en Spring Boot, React y .NET. Estudiante de Ciencias de la Computación en la UVG, Guatemala." />
     <meta name="keywords" content="desarrollador, full stack, portafolio, programador, Guatemala, Spring Boot, React, Java, C#, .NET" />
@@ -15,19 +16,80 @@
     <meta property="og:description" content="Desarrollador Full Stack especializado en Spring Boot, React y .NET" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_GT" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://tu-dominio.com" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Iván Roblero | Full Stack Developer" />
     <meta name="twitter:description" content="Desarrollador Full Stack especializado en Spring Boot, React y .NET" />
+    <meta name="twitter:image" content="/og-image.png" />
 
-    <!-- Theme -->
-    <meta name="theme-color" content="#FAFBFC" />
+    <!-- Theme - paleta cálida -->
+    <meta name="theme-color" content="#1c1917" />
+    <meta name="msapplication-TileColor" content="#0EA5E9" />
 
-    <!-- Favicon - puedes cambiarlo por uno personalizado -->
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Favicon personalizado -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Schema.org: Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Iván Roblero",
+      "jobTitle": "Full Stack Developer",
+      "description": "Desarrollador Full Stack especializado en Spring Boot, React y .NET. Estudiante de Ciencias de la Computación en la UVG, Guatemala.",
+      "url": "https://tu-dominio.com",
+      "email": "ivanroblerome@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Guatemala" },
+      "sameAs": [
+        "https://github.com/moonshin3z",
+        "https://www.linkedin.com/in/ivan-roblero-590451299"
+      ],
+      "knowsAbout": ["Java", "Spring Boot", "React", "C#", ".NET", "MySQL", "Docker", "Git"]
+    }
+    </script>
+
+    <!-- Schema.org: CreativeWork (proyectos destacados) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "CreativeWork",
+          "position": 1,
+          "name": "WellnessApp",
+          "description": "Aplicación integral para el seguimiento del bienestar emocional de estudiantes universitarios.",
+          "url": "https://wellnessapp-demo.vercel.app",
+          "dateCreated": "2025"
+        },
+        {
+          "@type": "CreativeWork",
+          "position": 2,
+          "name": "Sistema Hospital La Paz",
+          "description": "Sistema de escritorio para la gestión de equipos de cómputo del área de sistemas.",
+          "url": "https://github.com/moonshin3z/Inventario-Hospital-LaPaz",
+          "dateCreated": "2024"
+        },
+        {
+          "@type": "CreativeWork",
+          "position": 3,
+          "name": "Murphi",
+          "description": "Asistente inteligente para estudiantes foráneos con gestión de finanzas y productividad.",
+          "url": "https://github.com/moonshin3z/murphi",
+          "dateCreated": "2025"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <script>
+      (function(){var t=localStorage.getItem('portafolio-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);})();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

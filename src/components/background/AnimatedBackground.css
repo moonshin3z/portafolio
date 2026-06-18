@@ -9,7 +9,6 @@
   pointer-events: none;
 }
 
-/* Formas orgánicas tipo blob con gradientes */
 .bg-gradient {
   position: absolute;
   filter: blur(120px);
@@ -23,8 +22,8 @@
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   background: radial-gradient(
     ellipse at center,
-    rgba(14, 165, 233, 0.25) 0%,
-    rgba(3, 105, 161, 0.1) 40%,
+    rgba(168, 85, 247, 0.2) 0%,
+    rgba(126, 34, 206, 0.08) 40%,
     transparent 70%
   );
   top: -300px;
@@ -37,8 +36,8 @@
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   background: radial-gradient(
     ellipse at center,
-    rgba(56, 189, 248, 0.2) 0%,
-    rgba(14, 165, 233, 0.08) 50%,
+    rgba(139, 92, 246, 0.15) 0%,
+    rgba(168, 85, 247, 0.06) 50%,
     transparent 70%
   );
   top: 40%;
@@ -51,8 +50,8 @@
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   background: radial-gradient(
     ellipse at center,
-    rgba(125, 211, 252, 0.15) 0%,
-    rgba(3, 105, 161, 0.05) 50%,
+    rgba(192, 132, 252, 0.12) 0%,
+    rgba(126, 34, 206, 0.04) 50%,
     transparent 70%
   );
   bottom: -150px;

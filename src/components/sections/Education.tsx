@@ -1,114 +1,131 @@
 import { motion } from 'framer-motion';
-import { SectionHeader } from '../ui';
 import { education, achievement } from '../../data/education';
 import { personalInfo } from '../../data/personal';
 import { iconMap } from '../../utils/iconMap';
 import './Education.css';
 
+const timelineEvents = [
+  {
+    year: '2019',
+    label: 'Primer curso de programación',
+    detail: 'C++ a los 15 años',
+  },
+  {
+    year: '2022',
+    label: 'Bachillerato en Computación',
+    detail: education[1]?.institution || '',
+  },
+  {
+    year: '2024',
+    label: 'Medalla de Oro',
+    detail: achievement.title,
+    highlight: true,
+  },
+  {
+    year: '2025',
+    label: 'Ciencias de la Computación',
+    detail: education[0]?.institution || 'UVG',
+    active: true,
+  },
+];
+
 const Education = () => {
   return (
-    <section id="educacion" className="education section-dark" aria-labelledby="education-heading">
-      <SectionHeader
-        id="education-heading"
-        tag="// Formación"
-        title="Educación"
-        description="Mi trayectoria académica y logros que fundamentan mi desarrollo profesional"
-      />
-
-      <div className="education-content">
-        <div className="education-cards">
-          {education.map((edu, index) => {
-            const Icon = iconMap[edu.icon];
-            return (
-              <motion.div
-                key={edu.institution}
-                className="education-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                whileHover={{ y: -5 }}
-              >
-                <span className="education-icon">
-                  {Icon && <Icon size={32} strokeWidth={1.5} />}
-                </span>
-                <div className="education-info">
-                  <div className="education-header">
-                    <h3>{edu.institution}</h3>
-                    <span className={`education-status ${edu.status}`}>
-                      {edu.status === 'in-progress' ? 'En curso' : 'Completado'}
-                    </span>
-                  </div>
-                  <p className="education-degree">{edu.degree}</p>
-                  <p className="education-period">{edu.period}</p>
-                  <div className="education-highlights">
-                    {edu.highlights.map((highlight, i) => (
-                      <motion.div
-                        key={i}
-                        className="highlight-item"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.15 + i * 0.05 }}
-                      >
-                        <span className="highlight-arrow">//</span>
-                        {highlight}
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+    <section id="educacion" className="education" aria-labelledby="education-heading">
+      <div className="education-layout">
+        <div className="education-header">
+          <motion.span
+            className="education-label"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            03 / Educación
+          </motion.span>
+          <motion.h2
+            id="education-heading"
+            className="education-title"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Formación
+          </motion.h2>
         </div>
 
+        {/* Stats */}
         <motion.div
-          className="stats-section"
+          className="stats-row"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="stat-box">
-            <div className="stat-value">{personalInfo.stats.yearsExperience}+</div>
-            <div className="stat-text">Años programando</div>
+          <div className="stat">
+            <span className="stat-value">{personalInfo.stats.yearsExperience}+</span>
+            <span className="stat-text">Años programando</span>
           </div>
-          <div className="stat-box">
-            <div className="stat-value">{personalInfo.stats.projectsCompleted}+</div>
-            <div className="stat-text">Proyectos completados</div>
+          <div className="stat">
+            <span className="stat-value">{personalInfo.stats.projectsCompleted}+</span>
+            <span className="stat-text">Proyectos</span>
           </div>
-          <div className="stat-box">
-            <div className="stat-value">{personalInfo.stats.technologies}+</div>
-            <div className="stat-text">Tecnologías</div>
+          <div className="stat">
+            <span className="stat-value">{personalInfo.stats.technologies}+</span>
+            <span className="stat-text">Tecnologías</span>
           </div>
-          <div className="stat-box">
-            <div className="stat-value">{personalInfo.stats.englishLevel}</div>
-            <div className="stat-text">Inglés (Avanzado)</div>
+          <div className="stat">
+            <span className="stat-value">{personalInfo.stats.englishLevel}</span>
+            <span className="stat-text">Inglés</span>
           </div>
         </motion.div>
 
+        {/* Interactive Timeline */}
+        <div className="timeline" role="list" aria-label="Línea de tiempo educativa">
+          <div className="timeline-line" aria-hidden />
+          {timelineEvents.map((event, i) => (
+            <motion.div
+              key={event.year}
+              className={`timeline-event ${event.highlight ? 'timeline-event--highlight' : ''} ${event.active ? 'timeline-event--active' : ''}`}
+              role="listitem"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <span className="timeline-year">{event.year}</span>
+              <div className="timeline-dot" aria-hidden />
+              <div className="timeline-content">
+                <h3 className="timeline-event-label">{event.label}</h3>
+                <p className="timeline-event-detail">{event.detail}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Achievement detail */}
         <motion.div
-          className="achievement-card"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="achievement"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          whileHover={{ scale: 1.02 }}
         >
           {(() => {
             const AchievementIcon = iconMap[achievement.icon];
             return (
-              <span className="achievement-icon">
-                {AchievementIcon && <AchievementIcon size={48} strokeWidth={1.5} />}
-              </span>
+              <div className="achievement-icon">
+                {AchievementIcon && <AchievementIcon size={28} strokeWidth={1.5} />}
+              </div>
             );
           })()}
-          <div className="achievement-info">
+          <div className="achievement-content">
+            <span className="achievement-category">{achievement.category}</span>
             <h3>{achievement.title}</h3>
             <p className="achievement-institution">{achievement.institution}</p>
-            <span className="achievement-category">{achievement.category}</span>
-            <p className="achievement-description">{achievement.description}</p>
-            <p className="achievement-date">{achievement.date}</p>
+            <p className="achievement-desc">{achievement.description}</p>
+            <span className="achievement-date">{achievement.date}</span>
           </div>
         </motion.div>
       </div>

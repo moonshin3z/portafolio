@@ -1,23 +1,47 @@
 .skills {
-  padding: 8rem 3rem;
-  background: var(--bg-elevated);
+  padding: 10rem 6vw 6rem;
+}
+
+.skills-layout {
+  max-width: 1400px;
+}
+
+.skills-header {
+  margin-bottom: 5rem;
+}
+
+.skills-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.skills-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 .skills-grid {
-  max-width: 1400px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 1px;
+  border: 1px solid var(--border-subtle);
 }
 
 @media (max-width: 768px) {
   .skills {
-    padding: 4rem 1.5rem;
+    padding: 6rem 1.5rem 4rem;
   }
 
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }

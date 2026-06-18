@@ -1,0 +1,36 @@
+.local-clock {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.clock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: clock-pulse 2s ease-in-out infinite;
+}
+
+@keyframes clock-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.clock-location {
+  color: var(--text-muted);
+}
+
+.clock-time {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .local-clock {
+    display: none;
+  }
+}

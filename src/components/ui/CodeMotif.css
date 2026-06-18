@@ -1,0 +1,28 @@
+.code-motif {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  opacity: 0.12;
+  pointer-events: none;
+  user-select: none;
+  white-space: pre;
+  z-index: 0;
+}
+
+.code-motif--right {
+  right: 6vw;
+  top: 20%;
+}
+
+.code-motif--left {
+  left: 6vw;
+  bottom: 15%;
+}
+
+@media (max-width: 1024px) {
+  .code-motif {
+    display: none;
+  }
+}

@@ -1,0 +1,29 @@
+.signature {
+  margin-top: 1rem;
+}
+
+.signature-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.signature-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 500;
+  color: var(--accent);
+  opacity: 0.6;
+  display: block;
+  white-space: nowrap;
+}
+
+.signature-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: var(--bg-base);
+  transform-origin: right;
+}

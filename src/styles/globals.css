@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import './variables.css';
 
 * {
@@ -43,43 +43,43 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   line-height: 1.6;
+  cursor: none;
 }
 
-/* Fondo abstracto - toques cálidos */
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
 .app-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   background: var(--bg-base);
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(251, 191, 36, 0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(251, 191, 36, 0.04), transparent),
-    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(217, 119, 6, 0.05), transparent);
 }
 
-[data-theme='light'] .app-bg {
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(217, 119, 6, 0.06), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(251, 191, 36, 0.05), transparent),
-    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(217, 119, 6, 0.04), transparent);
-}
-
-/* Scrollbar - Dark */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-elevated);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-accent);
-  border-radius: 4px;
+  background: var(--border-light);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-light) transparent;
 }
 
 ::selection {
@@ -87,108 +87,20 @@ body {
   color: var(--text-primary);
 }
 
-[data-theme='light'] ::selection {
-  background: var(--accent-soft);
-  color: var(--text-primary);
-}
-
-/* Editorial: drop cap */
-.drop-cap::first-letter {
-  float: left;
-  font-size: 4em;
-  line-height: 0.85;
-  margin-right: 0.1em;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-/* Editorial: pull quote */
-.pull-quote {
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  border-left: 4px solid var(--border-accent);
-  padding-left: 1.5rem;
-  margin: 2rem 0;
-  font-style: italic;
-}
-
-/* Editorial: section divider */
-.section-divider {
-  width: 60px;
-  height: 2px;
-  background: var(--border-accent);
-  margin: 3rem auto;
-}
-
 section {
   position: relative;
 }
 
-/* Placeholder para secciones en lazy loading - shimmer suave */
+/* Skeleton loading */
 .section-skeleton {
   min-height: 200px;
-  background: linear-gradient(
-    110deg,
-    var(--bg-elevated) 0%,
-    var(--bg-elevated) 40%,
-    var(--accent-soft) 50%,
-    var(--bg-elevated) 60%,
-    var(--bg-elevated) 100%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-shimmer 2.5s ease-in-out infinite;
-}
-
-@keyframes skeleton-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .section-skeleton {
-    animation: none;
-    background: var(--bg-elevated);
-  }
-}
-
-.section-dark {
   background: var(--bg-elevated);
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 3rem;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 1rem;
-  }
-}
-
-/* Card base - Glassmorphism */
-.card {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 2rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card:hover {
-  border-color: var(--border-accent);
-  box-shadow: var(--shadow-card-hover);
+  padding: 0 6vw;
 }
 
 a:focus-visible,
@@ -198,13 +110,8 @@ button:focus-visible,
   outline-offset: 2px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .card,
-  .project-card,
-  .skill-card,
-  .contact-card,
-  .education-card,
-  .achievement-card {
-    transition-duration: 0.01ms;
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
   }
 }

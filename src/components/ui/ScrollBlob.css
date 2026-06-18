@@ -1,0 +1,53 @@
+.scroll-blob-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.scroll-blob {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.14) 0%,
+    rgba(139, 92, 246, 0.06) 35%,
+    transparent 65%
+  );
+  filter: blur(40px);
+  will-change: transform;
+}
+
+.scroll-blob-trail {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform;
+}
+
+.trail-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.09) 0%, transparent 60%);
+}
+
+.trail-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 55%);
+}
+
+.trail-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(126, 34, 206, 0.04) 0%, transparent 50%);
+}
+
+@media (max-width: 768px) {
+  .scroll-blob-container {
+    display: none;
+  }
+}

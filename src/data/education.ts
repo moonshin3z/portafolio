@@ -38,9 +38,17 @@ export const achievement: Achievement = {
   date: 'Mayo 2024',
 };
 
-export const experience = {
-  title: 'Pasantía - Hospital La Paz',
-  period: '2024',
-  description: 'Desarrollo del sistema de gestión y control de equipos de cómputo del área de sistemas.',
-  type: 'internship' as const,
-};
+export const experience = [
+  {
+    title: 'Pasantía - Hospital La Paz',
+    period: '2024',
+    description: 'Desarrollo del sistema de gestión y control de equipos de cómputo del área de sistemas.',
+    type: 'internship' as const,
+  },
+  {
+    title: 'Freelancer',
+    period: '2025 - Presente',
+    description: 'Desarrollo de soluciones de IA y automatización para clientes. Proyectos con agentes inteligentes, integración de APIs y despliegue en producción.',
+    type: 'freelance' as const,
+  },
+];

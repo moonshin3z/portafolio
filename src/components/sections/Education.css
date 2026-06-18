@@ -1,271 +1,250 @@
 .education {
-  padding: 8rem 3rem;
-  background: var(--bg-base);
+  padding: 10rem 6vw 6rem;
 }
 
-.education-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.education-cards {
-  display: grid;
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-.education-card {
+.education-layout {
+  max-width: 1400px;
   display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 2.5rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.education-card:hover {
-  border-color: var(--border-accent);
-  box-shadow: var(--shadow-card-hover);
-}
-
-.education-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: var(--accent-soft);
-  border: 1px solid var(--border-accent);
-  border-radius: 4px;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.education-info {
-  flex: 1;
+  flex-direction: column;
+  gap: 4rem;
 }
 
 .education-header {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.education-header h3 {
-  font-size: 1.5rem;
-  color: var(--accent);
-  margin: 0;
-}
-
-.education-status {
-  padding: 0.25rem 0.75rem;
-  border-radius: 50px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-}
-
-.education-status.in-progress {
-  background: var(--accent-soft);
-  border: 1px solid var(--border-accent);
-  color: var(--accent);
-}
-
-.education-status.completed {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-}
-
-.education-degree {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-}
-
-.education-period {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
-.education-highlights {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.5rem;
-}
-
-.highlight-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.highlight-arrow {
-  color: var(--accent);
+.education-label {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
 }
 
-/* Stats Section */
-.stats-section {
+.education-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* Stats */
+.stats-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   padding: 3rem 0;
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 3rem;
 }
 
-.stat-box {
-  text-align: center;
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .stat-value {
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
   line-height: 1;
 }
 
 .stat-text {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
-/* Achievement */
-.achievement-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  padding: 2.5rem;
+/* Timeline */
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 3rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: calc(3rem + 1.8rem + 10px);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border-subtle);
+}
+
+.timeline-event {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
   align-items: flex-start;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 1rem;
+  padding-right: 2rem;
 }
 
-.achievement-card:hover {
-  border-color: var(--border-accent);
-  box-shadow: var(--shadow-card-hover);
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
 }
 
-.achievement-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 72px;
-  height: 72px;
-  background: var(--accent-soft);
-  border: 1px solid var(--border-accent);
-  border-radius: 4px;
-  color: var(--accent);
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-light);
+  position: relative;
+  z-index: 1;
   flex-shrink: 0;
 }
 
-.achievement-info h3 {
-  font-size: 1.75rem;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
+.timeline-event--highlight .timeline-dot {
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
 }
 
-.achievement-institution {
-  color: var(--text-secondary);
+.timeline-event--active .timeline-dot {
+  background: var(--accent);
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(168, 85, 247, 0); }
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.timeline-event-label {
+  font-family: var(--font-serif);
   font-size: 1.1rem;
-  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.timeline-event--highlight .timeline-event-label {
+  color: var(--accent);
+}
+
+.timeline-event-detail {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Achievement */
+.achievement {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.achievement-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  padding-top: 0.25rem;
+}
+
+.achievement-content {
+  flex: 1;
 }
 
 .achievement-category {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  background: var(--accent-soft);
-  border: 1px solid var(--border-accent);
-  border-radius: 4px;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.achievement-description {
-  color: var(--text-muted);
+.achievement-content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.achievement-institution {
   font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.achievement-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
   margin-bottom: 0.5rem;
 }
 
 .achievement-date {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
   .education {
-    padding: 4rem 1.5rem;
+    padding: 6rem 1.5rem 4rem;
   }
 
-  .education-card {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-
-  .education-header h3 {
-    font-size: 1.25rem;
-  }
-
-  .stats-section {
+  .stats-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
-  .stat-value {
-    font-size: 2rem;
-  }
-
-  .achievement-card {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-
-  .achievement-info h3 {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .education {
-    padding: 3rem 1rem;
-  }
-
-  .education-card {
-    padding: 1.25rem;
-  }
-
-  .stats-section {
+  .timeline {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-line {
+    top: 0;
+    bottom: 0;
+    left: 3px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .timeline-event {
+    flex-direction: row;
+    align-items: flex-start;
     gap: 1rem;
-    padding: 2rem 0;
+    padding-right: 0;
   }
 
-  .stat-value {
-    font-size: 1.75rem;
+  .timeline-dot {
+    margin-top: 0.5rem;
+    position: absolute;
+    left: -2rem;
   }
 
-  .stat-text {
-    font-size: 0.85rem;
+  .timeline-year {
+    min-width: 40px;
+  }
+
+  .achievement {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 }

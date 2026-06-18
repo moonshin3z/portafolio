@@ -2,7 +2,7 @@
  * Header minimalista: logo + menú hamburguesa.
  * Incluye toggle de tema claro/oscuro.
  */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 import { personalInfo } from '../../data/personal';
@@ -12,19 +12,29 @@ import { useReducedMotion } from '../../contexts/ReducedMotionContext';
 import './Navbar.css';
 
 const navLinks = [
-  { href: '#sobre-mi', label: 'Sobre mí', id: 'sobre-mi' },
-  { href: '#proyectos', label: 'Proyectos', id: 'proyectos' },
-  { href: '#educacion', label: 'Educación', id: 'educacion' },
-  { href: '#habilidades', label: 'Habilidades', id: 'habilidades' },
-  { href: '#contacto', label: 'Contacto', id: 'contacto' },
+  { href: '#sobre-mi', label: 'Sobre mí', id: 'sobre-mi', num: '01' },
+  { href: '#proyectos', label: 'Proyectos', id: 'proyectos', num: '02' },
+  { href: '#educacion', label: 'Educación', id: 'educacion', num: '03' },
+  { href: '#habilidades', label: 'Habilidades', id: 'habilidades', num: '04' },
+  { href: '#contacto', label: 'Contacto', id: 'contacto', num: '05' },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoGlitch, setLogoGlitch] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const activeSection = useActiveSection();
   const prefersReducedMotion = useReducedMotion();
+
+  const handleLogoClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!logoGlitch) {
+      setLogoGlitch(true);
+      setTimeout(() => setLogoGlitch(false), 2000);
+    }
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  }, [logoGlitch, prefersReducedMotion]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -57,7 +67,13 @@ const Navbar = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <a href="#" className="logo" aria-label={`${personalInfo.name} - Inicio`}>
+      <a
+        href="#"
+        className={`logo ${logoGlitch ? 'logo--glitch' : ''}`}
+        aria-label={`${personalInfo.name} - Inicio`}
+        onClick={handleLogoClick}
+        data-text={personalInfo.logo}
+      >
         {personalInfo.logo}
       </a>
 
@@ -105,7 +121,7 @@ const Navbar = () => {
                     onClick={(e) => handleLinkClick(e, link.href)}
                     aria-current={activeSection === link.id ? 'page' : undefined}
                   >
-                    {link.label}
+                    <span className="nav-num">{link.num}.</span> {link.label}
                   </a>
                 </li>
               ))}

@@ -1,64 +1,66 @@
-/* Tema oscuro - Paleta cálida y amigable */
+/* Tema oscuro — Paleta violeta profesional */
 :root,
 [data-theme='dark'] {
-  --bg-base: #1c1917;
-  --bg-elevated: #292524;
-  --bg-card: rgba(41, 37, 36, 0.95);
-  --bg-glass: rgba(251, 191, 36, 0.06);
-  --bg-glass-hover: rgba(251, 191, 36, 0.1);
+  --bg-base: #0a0a0f;
+  --bg-elevated: #12121a;
+  --bg-card: rgba(18, 18, 26, 0.95);
+  --bg-glass: rgba(168, 85, 247, 0.06);
+  --bg-glass-hover: rgba(168, 85, 247, 0.12);
 
-  --text-primary: #fafaf9;
-  --text-secondary: #d6d3d1;
-  --text-muted: #a8a29e;
+  --text-primary: #f0eef5;
+  --text-secondary: #b4b0c4;
+  --text-muted: #7a7690;
 
-  --border-subtle: rgba(251, 191, 36, 0.12);
-  --border-light: rgba(251, 191, 36, 0.18);
-  --border-accent: rgba(251, 191, 36, 0.3);
+  --border-subtle: rgba(168, 85, 247, 0.1);
+  --border-light: rgba(168, 85, 247, 0.18);
+  --border-accent: rgba(168, 85, 247, 0.35);
 
-  --accent: #fbbf24;
-  --accent-hover: #f59e0b;
-  --accent-muted: rgba(251, 191, 36, 0.7);
-  --accent-soft: rgba(251, 191, 36, 0.15);
+  --accent: #a855f7;
+  --accent-hover: #c084fc;
+  --accent-muted: rgba(168, 85, 247, 0.7);
+  --accent-soft: rgba(168, 85, 247, 0.12);
 
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
-  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(251, 191, 36, 0.1);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(168, 85, 247, 0.08);
 
-  --navbar-scrolled: rgba(28, 25, 23, 0.92);
+  --navbar-scrolled: rgba(10, 10, 15, 0.92);
   --error: #f87171;
-  --gradient-glow: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.05));
+  --gradient-glow: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(139, 92, 246, 0.05));
 
-  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Tema claro - Paleta cálida y amigable */
+/* Tema claro — Paleta violeta suave */
 [data-theme='light'] {
-  --bg-base: #fefdfb;
-  --bg-elevated: #faf5ed;
+  --bg-base: #faf8fc;
+  --bg-elevated: #f3eff8;
   --bg-card: rgba(255, 255, 255, 0.95);
-  --bg-glass: rgba(217, 119, 6, 0.06);
-  --bg-glass-hover: rgba(217, 119, 6, 0.1);
+  --bg-glass: rgba(126, 34, 206, 0.05);
+  --bg-glass-hover: rgba(126, 34, 206, 0.1);
 
-  --text-primary: #1c1917;
-  --text-secondary: #57534e;
-  --text-muted: #78716c;
+  --text-primary: #1a1525;
+  --text-secondary: #4a4558;
+  --text-muted: #6b6580;
 
-  --border-subtle: rgba(217, 119, 6, 0.15);
-  --border-light: rgba(217, 119, 6, 0.25);
-  --border-accent: rgba(217, 119, 6, 0.4);
+  --border-subtle: rgba(126, 34, 206, 0.12);
+  --border-light: rgba(126, 34, 206, 0.2);
+  --border-accent: rgba(126, 34, 206, 0.35);
 
-  --accent: #d97706;
-  --accent-hover: #b45309;
-  --accent-muted: rgba(217, 119, 6, 0.9);
-  --accent-soft: rgba(217, 119, 6, 0.12);
+  --accent: #7e22ce;
+  --accent-hover: #6b21a8;
+  --accent-muted: rgba(126, 34, 206, 0.85);
+  --accent-soft: rgba(126, 34, 206, 0.1);
 
-  --shadow-card: 0 4px 24px rgba(28, 25, 23, 0.06);
-  --shadow-card-hover: 0 8px 40px rgba(28, 25, 23, 0.1), 0 0 0 1px rgba(217, 119, 6, 0.08);
+  --shadow-card: 0 4px 24px rgba(26, 21, 37, 0.06);
+  --shadow-card-hover: 0 8px 40px rgba(26, 21, 37, 0.1), 0 0 20px rgba(126, 34, 206, 0.06);
 
-  --navbar-scrolled: rgba(254, 253, 251, 0.95);
+  --navbar-scrolled: rgba(250, 248, 252, 0.95);
   --error: #dc2626;
-  --gradient-glow: linear-gradient(135deg, rgba(217, 119, 6, 0.12), rgba(180, 83, 9, 0.05));
+  --gradient-glow: linear-gradient(135deg, rgba(126, 34, 206, 0.1), rgba(168, 85, 247, 0.04));
 
-  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }

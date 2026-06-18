@@ -1,0 +1,10 @@
+.text-reveal {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-primary);
+}
+
+.text-reveal-word {
+  display: inline;
+  transition: opacity 0.1s;
+}

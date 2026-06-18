@@ -1,28 +1,36 @@
-/**
- * Sección Sobre mí con estilo editorial:
- * drop caps, pull quotes y separadores.
- */
 import { motion } from 'framer-motion';
-import { SectionHeader } from '../ui';
 import { personalInfo } from '../../data/personal';
 import { experience } from '../../data/education';
+import TextReveal from '../ui/TextReveal';
 import './About.css';
 
 const About = () => {
   return (
-    <section id="sobre-mi" className="about section-with-bg" aria-labelledby="about-heading">
-      <div className="about-abstract" aria-hidden />
-      <div className="about-inner">
-        <SectionHeader
+    <section id="sobre-mi" className="about" aria-labelledby="about-heading">
+      <div className="about-header">
+        <motion.span
+          className="about-label"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          01 / Sobre mí
+        </motion.span>
+        <motion.h2
           id="about-heading"
-          tag="Sobre mí"
-          title="Conóceme"
-          description="Mi historia, pasión y lo que me motiva a crear"
-        />
+          className="about-title"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Conóceme
+        </motion.h2>
+      </div>
 
-        <div className="section-divider" />
-
-        <div className="about-editorial">
+      <div className="about-grid">
+        <div className="about-main">
           <motion.article
             className="about-article"
             initial={{ opacity: 0, y: 20 }}
@@ -30,64 +38,59 @@ const About = () => {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="about-article-title">Mi Historia</h3>
-            <p className="about-article-text drop-cap">{personalInfo.about.intro}</p>
+            <TextReveal text={personalInfo.about.intro} className="about-text--lead" />
           </motion.article>
 
-          <blockquote className="pull-quote about-pull-quote">
+          <motion.article
+            className="about-article"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <TextReveal text={personalInfo.about.passion} className="about-text--lead" />
+          </motion.article>
+
+          <motion.article
+            className="about-article"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <TextReveal text={personalInfo.about.style} className="about-text--lead" />
+          </motion.article>
+        </div>
+
+        <motion.aside
+          className="about-sidebar"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <blockquote className="about-quote">
             "Me encanta resolver problemas y convertirlos en soluciones reales."
           </blockquote>
 
-          <motion.article
-            className="about-article"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5 }}
-          >
-            <h3 className="about-article-title">Mi Pasión</h3>
-            <p className="about-article-text">{personalInfo.about.passion}</p>
-          </motion.article>
-
-          <div className="section-divider" />
-
-          <motion.article
-            className="about-article"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5 }}
-          >
-            <h3 className="about-article-title">Mi Estilo</h3>
-            <p className="about-article-text">{personalInfo.about.style}</p>
-          </motion.article>
-
-          <div className="about-hobbies">
-            <h3 className="about-article-title">Mis Hobbies</h3>
-            <div className="hobbies-list">
+          <div className="about-detail">
+            <span className="about-detail-label">Hobbies</span>
+            <div className="about-hobbies">
               {personalInfo.about.hobbies.map((hobby) => (
-                <span key={hobby} className="hobby-tag">
-                  {hobby}
-                </span>
+                <span key={hobby}>{hobby}</span>
               ))}
             </div>
           </div>
 
-          <div className="section-divider" />
-
-          <motion.div
-            className="experience-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="experience-tag">Experiencia</span>
-            <h4 className="experience-title">{experience.title}</h4>
-            <p className="experience-period">{experience.period}</p>
-            <p className="experience-description">{experience.description}</p>
-          </motion.div>
-        </div>
+          {experience.map((exp) => (
+            <div key={exp.title} className="about-detail">
+              <span className="about-detail-label">{exp.type === 'freelance' ? 'Freelance' : 'Experiencia'}</span>
+              <h4 className="about-exp-title">{exp.title}</h4>
+              <p className="about-exp-period">{exp.period}</p>
+              <p className="about-exp-desc">{exp.description}</p>
+            </div>
+          ))}
+        </motion.aside>
       </div>
     </section>
   );

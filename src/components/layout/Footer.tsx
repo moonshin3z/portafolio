@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { personalInfo } from '../../data/personal';
+import Signature from '../ui/Signature';
 import './Footer.css';
 
 const Footer = () => {
@@ -17,6 +18,7 @@ const Footer = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="footer-content">
+        <Signature />
         <p className="footer-text">
           © {currentYear} — Desarrollado con <Heart size={14} /> en {personalInfo.location}
         </p>

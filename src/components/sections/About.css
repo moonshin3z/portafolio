@@ -1,130 +1,147 @@
 .about {
-  padding: 8rem 3rem;
-  position: relative;
+  padding: 10rem 6vw 6rem;
 }
 
-.section-with-bg {
-  position: relative;
-  overflow: hidden;
+.about-header {
+  margin-bottom: 5rem;
 }
 
-.about-abstract {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse 50% 30% at 20% 20%, rgba(255, 255, 255, 0.04), transparent),
-    radial-gradient(ellipse 40% 25% at 80% 60%, rgba(255, 255, 255, 0.03), transparent);
-  pointer-events: none;
-}
-
-[data-theme='light'] .about-abstract {
-  background:
-    radial-gradient(ellipse 50% 30% at 20% 20%, rgba(0, 0, 0, 0.02), transparent),
-    radial-gradient(ellipse 40% 25% at 80% 60%, rgba(0, 0, 0, 0.02), transparent);
-}
-
-.about-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.about-editorial {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.about-article {
-  margin-bottom: 2.5rem;
-}
-
-.about-article-title {
+.about-label {
+  display: block;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
 }
 
-.about-article-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
+.about-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  padding-top: 0.1em;
 }
 
-.about-pull-quote {
-  margin: 3rem 0;
-  font-size: 1.4rem;
+/* Two-column editorial layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 6rem;
+  max-width: 1400px;
 }
 
-.about-hobbies {
-  margin: 2.5rem 0;
-}
-
-.hobbies-list {
+/* Main column */
+.about-main {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.hobby-tag {
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  font-family: var(--font-mono);
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  background: var(--bg-glass);
 }
 
-.experience-card {
-  padding: 2rem 0;
+.about-text--lead {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+/* Sidebar */
+.about-sidebar {
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.about-quote {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--accent);
+}
+
+.about-detail {
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border-subtle);
 }
 
-.experience-tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.experience-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0.5rem 0 0.25rem;
-}
-
-.experience-period {
+.about-detail-label {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
-.experience-description {
-  font-size: 1rem;
+.about-hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0;
+}
+
+.about-hobbies span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.about-hobbies span::after {
+  content: ', ';
+  color: var(--text-muted);
+}
+
+.about-hobbies span:last-child::after {
+  content: '';
+}
+
+.about-exp-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.about-exp-period {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.about-exp-desc {
+  font-size: 0.9rem;
   line-height: 1.7;
   color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {
   .about {
-    padding: 4rem 1.5rem;
+    padding: 6rem 1.5rem 4rem;
   }
 
-  .about-article-text {
-    font-size: 1rem;
+  .about-header {
+    margin-bottom: 3rem;
   }
 
-  .about-pull-quote {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-quote {
     font-size: 1.2rem;
   }
 }

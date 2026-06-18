@@ -1,0 +1,37 @@
+.konami-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.konami-particle {
+  position: absolute;
+  top: 0;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
+
+.konami-particle:nth-child(odd) {
+  background: var(--accent-hover);
+  border-radius: 50%;
+}
+
+.konami-particle:nth-child(3n) {
+  background: #e879f9;
+}
+
+.konami-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+  white-space: nowrap;
+}

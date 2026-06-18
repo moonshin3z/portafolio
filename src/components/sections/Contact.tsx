@@ -106,8 +106,9 @@ const Contact = () => {
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
+        <span className="contact-label">05 / Contacto</span>
         <h2 id="contact-heading" className="contact-title">
-          Trabajemos Juntos
+          Trabajemos<br />juntos
         </h2>
         <p className="contact-subtitle">
           ¿Tienes un proyecto en mente? ¿Buscas un desarrollador comprometido y apasionado?
@@ -217,7 +218,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -10, boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)' }}
+              whileHover={{ y: -4 }}
             >
               <span className="contact-icon">{method.icon}</span>
               <span className="contact-label">{method.label}</span>

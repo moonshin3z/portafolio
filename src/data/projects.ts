@@ -26,6 +26,17 @@ export const projects: Project[] = [
     type: 'internship',
   },
   {
+    id: 4,
+    title: 'Sofia — AI para Clínicas',
+    description:
+      'Agente de inteligencia artificial que automatiza la atención de clínicas médicas. Contesta llamadas telefónicas con voz natural, responde mensajes de WhatsApp y agenda citas directamente en el calendario. Reduce hasta un 70 % la carga operativa del personal de recepción.',
+    tags: ['Python', 'Claude API', 'ElevenLabs', 'WhatsApp API', 'Cal.com'],
+    image: '/images/projects/sofia.png',
+    githubUrl: '#',
+    date: '2025 - 2026',
+    type: 'personal',
+  },
+  {
     id: 3,
     title: 'Murphi',
     description:

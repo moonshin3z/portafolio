@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
 import { personalInfo } from '../../data/personal';
 import Signature from '../ui/Signature';
 import './Footer.css';

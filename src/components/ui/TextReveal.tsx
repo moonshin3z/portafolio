@@ -4,12 +4,13 @@ import { useReducedMotion } from '../../contexts/ReducedMotionContext';
 import './TextReveal.css';
 
 interface TextRevealProps {
-  text: string;
+  text?: string;
+  paragraphs?: string[];
   className?: string;
 }
 
-const TextReveal = ({ text, className = '' }: TextRevealProps) => {
-  const containerRef = useRef<HTMLParagraphElement>(null);
+const TextReveal = ({ text, paragraphs, className = '' }: TextRevealProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
@@ -17,20 +18,41 @@ const TextReveal = ({ text, className = '' }: TextRevealProps) => {
     offset: ['start 0.85', 'end 0.4'],
   });
 
-  const words = text.split(' ');
+  const allParagraphs = paragraphs || (text ? [text] : []);
+  const allWords = allParagraphs.flatMap((p, pIdx) =>
+    p.split(' ').map((word, wIdx) => ({ word, paragraphIndex: pIdx, key: `${pIdx}-${wIdx}` }))
+  );
+  const totalWords = allWords.length;
 
   if (prefersReducedMotion) {
-    return <p className={`text-reveal ${className}`}>{text}</p>;
+    return (
+      <div className={`text-reveal ${className}`}>
+        {allParagraphs.map((p, i) => (
+          <p key={i} className="text-reveal-paragraph">{p}</p>
+        ))}
+      </div>
+    );
   }
 
+  let wordIndex = 0;
+
   return (
-    <p ref={containerRef} className={`text-reveal ${className}`}>
-      {words.map((word, i) => {
-        const start = i / words.length;
-        const end = start + 1 / words.length;
-        return <Word key={i} word={word} range={[start, end]} progress={scrollYProgress} />;
+    <div ref={containerRef} className={`text-reveal ${className}`}>
+      {allParagraphs.map((p, pIdx) => {
+        const words = p.split(' ');
+        const paragraph = (
+          <p key={pIdx} className="text-reveal-paragraph">
+            {words.map((word) => {
+              const i = wordIndex++;
+              const start = i / totalWords;
+              const end = start + 1 / totalWords;
+              return <Word key={`${pIdx}-${i}`} word={word} range={[start, end]} progress={scrollYProgress} />;
+            })}
+          </p>
+        );
+        return paragraph;
       })}
-    </p>
+    </div>
   );
 };
 

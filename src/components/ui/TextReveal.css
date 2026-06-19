@@ -4,6 +4,14 @@
   color: var(--text-primary);
 }
 
+.text-reveal-paragraph {
+  margin-bottom: 1.5rem;
+}
+
+.text-reveal-paragraph:last-child {
+  margin-bottom: 0;
+}
+
 .text-reveal-word {
   display: inline;
   transition: opacity 0.1s;

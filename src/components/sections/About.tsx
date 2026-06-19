@@ -32,7 +32,7 @@ const About = () => {
       <div className="about-grid">
         <div className="about-main">
           <TextReveal
-            text={`${personalInfo.about.intro} ${personalInfo.about.passion} ${personalInfo.about.style}`}
+            paragraphs={[personalInfo.about.intro, personalInfo.about.passion, personalInfo.about.style]}
             className="about-text--lead"
           />
         </div>

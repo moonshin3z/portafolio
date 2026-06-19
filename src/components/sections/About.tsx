@@ -31,35 +31,10 @@ const About = () => {
 
       <div className="about-grid">
         <div className="about-main">
-          <motion.article
-            className="about-article"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5 }}
-          >
-            <TextReveal text={personalInfo.about.intro} className="about-text--lead" />
-          </motion.article>
-
-          <motion.article
-            className="about-article"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5 }}
-          >
-            <TextReveal text={personalInfo.about.passion} className="about-text--lead" />
-          </motion.article>
-
-          <motion.article
-            className="about-article"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.5 }}
-          >
-            <TextReveal text={personalInfo.about.style} className="about-text--lead" />
-          </motion.article>
+          <TextReveal
+            text={`${personalInfo.about.intro} ${personalInfo.about.passion} ${personalInfo.about.style}`}
+            className="about-text--lead"
+          />
         </div>
 
         <motion.aside

@@ -14,7 +14,7 @@ const TextReveal = ({ text, className = '' }: TextRevealProps) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start 0.9', 'start 0.3'],
+    offset: ['start 0.85', 'end 0.4'],
   });
 
   const words = text.split(' ');

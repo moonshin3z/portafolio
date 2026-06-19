@@ -20,7 +20,7 @@ const Footer = () => {
       <div className="footer-content">
         <Signature />
         <p className="footer-text">
-          © {currentYear} — Desarrollado con <Heart size={14} /> en {personalInfo.location}
+          © {currentYear} Iván Roblero
         </p>
         <div className="footer-links">
           <a

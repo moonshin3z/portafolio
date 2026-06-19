@@ -81,7 +81,7 @@ const Education = () => {
           {timelineEvents.map((event, i) => (
             <motion.div
               key={event.year}
-              className={`timeline-event ${event.highlight ? 'timeline-event--highlight' : ''} ${event.active ? 'timeline-event--active' : ''}`}
+              className={`timeline-event ${'highlight' in event && event.highlight ? 'timeline-event--highlight' : ''} ${'active' in event && event.active ? 'timeline-event--active' : ''}`}
               role="listitem"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

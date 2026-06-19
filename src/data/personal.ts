@@ -11,7 +11,7 @@ export const personalInfo: PersonalInfo = {
     intro: 'Desde pequeño me sentí intrigado y asombrado por la tecnología. A los 15 años tomé mi primer curso de programación en C++, y ahí descubrí que era bueno resolviendo problemas lógicos. Eso me llevó a elegir un bachillerato con orientación en computación, donde me enamoré de la programación.',
     passion: 'Me obsesioné tanto con ganar las Olimpiadas de la Ciencia organizadas por la Universidad Mesoamericana que, el año que las perdí, estudié el doble. Al siguiente año las gané. Esa mentalidad es la que aplico en cada proyecto: me encanta resolver problemas y convertirlos en soluciones reales.',
     style: 'Soy estudiante foráneo en la UVG, la mejor universidad de Guatemala para Ciencias de la Computación. Estar lejos de casa me enseñó independencia y disciplina. Cada proyecto que hago tiene un toque personal porque me gusta que resuelva problemas reales, no solo que se vea bien.',
-    hobbies: ['Ajedrez', 'Tenis de mesa', 'Natación', 'Tecnología', 'Gimnasio'],
+    hobbies: ['Tenis de mesa', 'Café', 'Música', 'Tecnología', 'Gimnasio'],
   },
   stats: {
     yearsExperience: 4,

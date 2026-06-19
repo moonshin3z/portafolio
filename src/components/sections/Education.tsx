@@ -16,12 +16,6 @@ const timelineEvents = [
     detail: education[1]?.institution || '',
   },
   {
-    year: '2024',
-    label: 'Medalla de Oro',
-    detail: achievement.title,
-    highlight: true,
-  },
-  {
     year: '2025',
     label: 'Ciencias de la Computación',
     detail: education[0]?.institution || 'UVG',
